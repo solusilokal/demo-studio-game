@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third.floor Studio | Underground Gaming Center & Esports Arena Bandung</title>
+    
+    <!-- SEO Lengkap -->
+    <meta name="description" content="Third.floor Studio - Premium Underground Gaming Center di Bandung. Menyediakan PC Gaming High-End, PlayStation, Racing Simulator, dan ruang turnamen. Booking sekarang!">
+    <meta name="keywords" content="gaming center bandung, warnet terdekat, sewa pc gaming bandung, racing simulator bandung, studio game, rental ps5 bandung, esport arena, Third.floor Studio, y2k gaming, brutalist web design">
+    <meta name="author" content="SolusiLokal">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Third.floor Studio | Level Up Your Experience">
+    <meta property="og:description" content="Masuk ke arena bawah tanah. Setup dewa, koneksi tanpa ampun. Booking slot gaming-mu sekarang di Bandung.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="icon" href="gambarasset/favicon.ico" type="image/png">
+
+    <!-- Google Fonts: Space Grotesk (Headers/Brutal) & Space Mono (Tech/Y2K) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tf-black': '#0a0a0a',
+                        'tf-paper': '#e8e8e8',
+                        'tf-blue': '#0011ff', // Royal Blue
+                        'tf-red': '#ff1100', // Warning Red
+                        'tf-orange': '#ff5500', // Grunge Orange
+                        'tf-acid': '#ccff00',
+                        'tf-gray': '#1a1a1a',
+                    },
+                    fontFamily: {
+                        'grotesk': ['Space Grotesk', 'sans-serif'],
+                        'mono': ['Space Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'brutal-acid': '6px 6px 0px 0px #ccff00',
+                        'brutal-blue': '8px 8px 0px 0px #0011ff',
+                        'brutal-red': '8px 8px 0px 0px #ff1100',
+                        'brutal-black': '8px 8px 0px 0px #000000',
+                        'brutal-white': '6px 6px 0px 0px #ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Base Noise & Grain Texture - HEAVIER for Grunge Look */
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: overlay;
+        }
+
+        /* Y2K Distorted Images / Duotone Filters */
+        .duotone-blue {
+            filter: grayscale(100%) contrast(1.5) sepia(100%) hue-rotate(190deg) saturate(400%);
+        }
+        .duotone-red {
+            filter: grayscale(100%) contrast(1.4) sepia(100%) hue-rotate(-50deg) saturate(500%);
+        }
+        .duotone-orange {
+            filter: grayscale(100%) contrast(1.5) sepia(100%) hue-rotate(5deg) saturate(300%);
+        }
+        .halftone-effect {
+            filter: grayscale(100%) contrast(200%);
+            mix-blend-mode: hard-light;
+        }
+        
+        .scanlines {
+            position: relative;
+            overflow: hidden;
+        }
+        .scanlines::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
+            z-index: 10;
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        /* Patterns */
+        .pattern-cross {
+            background-image: radial-gradient(#fff 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+        }
+        .pattern-stripes {
+            background: repeating-linear-gradient(
+                45deg,
+                #ff1100,
+                #ff1100 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+        .pattern-stripes-blue {
+            background: repeating-linear-gradient(
+                -45deg,
+                #0011ff,
+                #0011ff 5px,
+                transparent 5px,
+                transparent 10px
+            );
+        }
+        .pattern-checker {
+            background-image: linear-gradient(45deg, #0011ff 25%, transparent 25%), linear-gradient(-45deg, #0011ff 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #0011ff 75%), linear-gradient(-45deg, transparent 75%, #0011ff 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+        }
+
+        /* Typography Extras */
+        .text-outline {
+            -webkit-text-stroke: 1px #fff;
+            color: transparent;
+        }
+        .text-outline-thick {
+            -webkit-text-stroke: 2px #fff;
+            color: transparent;
+        }
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #ff1100; }
+        ::-webkit-scrollbar-thumb:hover { background: #ccff00; }
+
+        /* Tech/Glitch Hover Animations */
+        .glitch-hover {
+            position: relative;
+        }
+        .glitch-hover:hover::before, .glitch-hover:hover::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
+        }
+        .glitch-hover:hover::before {
+            left: 2px;
+            text-shadow: -1px 0 #ff1100;
+            animation: glitch-anim 0.3s infinite linear alternate-reverse;
+        }
+        .glitch-hover:hover::after {
+            left: -2px;
+            text-shadow: -1px 0 #0011ff;
+            animation: glitch-anim-2 0.3s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip-path: inset(20% 0 80% 0); }
+            20% { clip-path: inset(60% 0 10% 0); }
+            40% { clip-path: inset(40% 0 50% 0); }
+            60% { clip-path: inset(80% 0 5% 0); }
+            80% { clip-path: inset(10% 0 70% 0); }
+            100% { clip-path: inset(30% 0 20% 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip-path: inset(10% 0 60% 0); }
+            20% { clip-path: inset(30% 0 20% 0); }
+            40% { clip-path: inset(70% 0 10% 0); }
+            60% { clip-path: inset(20% 0 50% 0); }
+            80% { clip-path: inset(90% 0 5% 0); }
+            100% { clip-path: inset(5% 0 80% 0); }
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.95); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+
+        /* Cursor Glow (Brighter, No Trail) */
+        #cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(204, 255, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9998;
+            transition: opacity 0.2s ease;
+            mix-blend-mode: screen;
+        }
+    </style>
+</head>
+<body class="font-grotesk overflow-x-hidden">
+    
+    <!-- Cursor Glow Element -->
+    <div id="cursor-glow"></div>
+
+    <nav class="fixed w-full z-50 top-0 border-b-4 border-white bg-tf-black/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo & Brand (Interactive) -->
+                <a href="#" onclick="window.scrollTo(0,0); return false;" class="flex-shrink-0 flex items-center gap-3 group cursor-pointer transition-all hover:opacity-80">
+                    <img src="gambarasset/logo.webp" alt="Logo" class="h-10 w-10 object-cover border-2 border-white transition-all duration-500 filter grayscale group-hover:grayscale-0">
+                    <span class="font-black text-2xl tracking-tighter text-white uppercase group-hover:text-tf-acid transition-colors">Third<span class="text-tf-red group-hover:text-white transition-colors">.floor</span> Studio</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center font-mono text-sm font-bold uppercase tracking-widest bg-white text-black px-6 py-2 border-2 border-black shadow-[4px_4px_0_0_#ff1100]">
+                    <a href="#about" class="hover:text-tf-red transition-colors glitch-hover" data-text="Profile">Profile</a>
+                    <a href="#arena" class="hover:text-tf-red transition-colors glitch-hover" data-text="Katalog Area">Katalog Area</a>
+                    <a href="#facilities" class="hover:text-tf-red transition-colors glitch-hover" data-text="Fasilitas">Fasilitas</a>
+                    <a href="#pricing" class="hover:text-tf-red transition-colors glitch-hover" data-text="Pricing">Pricing</a>
+                    <a href="#reviews" class="hover:text-tf-red transition-colors glitch-hover" data-text="Ulasan">Ulasan</a>
+                </div>
+
+                <!-- CTA -->
+                <div class="hidden md:flex">
+                    <a href="https://wa.me/6289529605601?text=Halo%20Third.floor%20Studio,%20saya%20mau%20booking%20slot." target="_blank" class="bg-tf-red text-white px-6 py-3 font-black font-mono uppercase border-2 border-white hover:bg-white hover:text-tf-red transition-all shadow-brutal-blue">
+                        BOOKING SEKARANG <i class="fas fa-times ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-tf-red border-b-4 border-white">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 font-mono font-black uppercase text-center">
+                <a href="#about" class="block px-3 py-4 text-white hover:bg-black border-b border-white/30 glitch-hover" data-text="Profile">Profile</a>
+                <a href="#arena" class="block px-3 py-4 text-white hover:bg-black border-b border-white/30 glitch-hover" data-text="Katalog Area">Katalog Area</a>
+                <a href="#facilities" class="block px-3 py-4 text-white hover:bg-black border-b border-white/30 glitch-hover" data-text="Fasilitas">Fasilitas</a>
+                <a href="#pricing" class="block px-3 py-4 text-white hover:bg-black border-b border-white/30 glitch-hover" data-text="Pricing">Pricing</a>
+                <a href="#reviews" class="block px-3 py-4 text-white hover:bg-black border-b border-white/30 glitch-hover" data-text="Ulasan">Ulasan</a>
+                <a href="https://wa.me/6289529605601" class="block mt-4 mx-4 px-3 py-4 bg-white text-tf-red border-2 border-black shadow-brutal-black">BOOKING SEKARANG</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden bg-tf-black min-h-screen flex items-center border-b-8 border-white">
+        <!-- Grunge Elements -->
+        <div class="absolute inset-0 pattern-cross z-0"></div>
+        <div class="absolute top-1/4 -left-20 text-[200px] font-black text-white/5 vertical-text pointer-events-none">SYSTEM_ERROR</div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Side Vertical Text (Broken Style) -->
+                <div class="hidden lg:flex col-span-1 h-full flex-col justify-end">
+                    <div class="text-tf-red font-mono font-black text-5xl vertical-text transform rotate-180 tracking-widest whitespace-nowrap">
+                        THIRD.FLOOR
+                    </div>
+                </div>
+
+                <!-- Typography / Copywriting -->
+                <div class="lg:col-span-5 reveal-left relative z-20">
+                    <div class="inline-flex gap-2 mb-6">
+                        <div class="bg-white text-black px-3 py-1 font-mono text-sm font-black border-2 border-black uppercase">
+                            [ SYSTEM_ONLINE: READY ]
+                        </div>
+                        <div class="bg-tf-red text-white px-3 py-1 font-mono text-sm font-black border-2 border-black uppercase">
+                            X X X
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-7xl sm:text-8xl lg:text-[100px] font-black uppercase leading-[0.8] tracking-tighter mb-6 relative">
+                        <span class="text-outline-thick block glitch-hover" data-text="ENTER">ENTER</span>
+                        <span class="block relative z-10 glitch-hover" data-text="THE">THE</span>
+                        <span class="text-tf-red block transform -rotate-2 relative z-20 bg-white/10 px-2 mix-blend-screen glitch-hover" data-text="GRID.">GRID.</span>
+                    </h1>
+                    
+                    <div class="bg-black/80 border-l-4 border-tf-acid p-4 mb-8 backdrop-blur-sm relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-tf-acid opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                        <p class="text-lg text-white font-mono leading-relaxed relative z-10">
+                            Fasilitas premium untuk ekosistem esports dan sesi gaming intensif. Performa maksimal, latensi rendah, dan ruang kolaboratif untuk komunitas modern.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/6289529605601" class="bg-tf-blue text-white px-8 py-4 font-black font-mono text-xl uppercase border-4 border-white shadow-[6px_6px_0_0_#ff1100] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#ff1100] transition-all text-center">
+                            CEK SLOT TERSEDIA
+                        </a>
+                        <a href="#arena" class="bg-transparent text-white px-8 py-4 font-black font-mono text-xl uppercase border-4 border-white hover:bg-white hover:text-black transition-all text-center flex items-center justify-center gap-2">
+                            LIHAT AREA <i class="fas fa-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image with Heavy Duotone & Overlaps -->
+                <div class="lg:col-span-6 relative reveal-scale z-10 mt-12 lg:mt-0">
+                    <!-- Red/Black Duotone Image -->
+                    <div class="border-8 border-white bg-black relative p-2 transform rotate-2 z-10 group overflow-hidden">
+                        <div class="scanlines relative">
+                            <img src="gambarasset/hero.webp" alt="Gaming Setup" class="w-full h-auto object-cover aspect-[4/3] filter grayscale contrast-125 transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-100">
+                        </div>
+                    </div>
+                    
+                    <!-- Overlapping Decorative Blocks -->
+                    <div class="absolute -top-10 -right-10 w-48 h-48 pattern-checker border-4 border-white z-0 opacity-80"></div>
+                    <div class="absolute -bottom-8 -left-8 w-64 h-24 pattern-stripes z-20"></div>
+                    
+                    <div class="absolute -bottom-4 right-4 z-30 bg-tf-acid text-black border-4 border-black px-4 py-2 text-2xl font-black transform -rotate-12 shadow-[4px_4px_0_0_#000]">
+                        #NO_LAG
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-tf-orange text-black font-mono font-black text-3xl py-4 border-b-8 border-white marquee-container uppercase tracking-widest overflow-hidden relative z-20">
+        <div class="marquee-content whitespace-nowrap">
+            X X X HIGH-PERFORMANCE GAMING STUDIO /// SEAMLESS CONNECTIVITY /// COMPETITIVE ARENA /// ELEVATE YOUR EXPERIENCE /// BANDUNG'S ELITE GAMING HUB /// HIGH-PERFORMANCE GAMING STUDIO /// SEAMLESS CONNECTIVITY /// COMPETITIVE ARENA /// ELEVATE YOUR EXPERIENCE X X X
+        </div>
+    </div>
+
+    <section id="about" class="py-24 bg-tf-paper text-black relative overflow-hidden border-b-8 border-black">
+        <div class="absolute top-0 right-0 w-1/2 h-full pattern-cross opacity-30 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 relative items-center">
+                
+                <div class="lg:col-span-6 reveal-left z-10 relative">
+                    <!-- Cutout / Collage Image Style -->
+                    <div class="relative inline-block border-8 border-black shadow-[12px_12px_0_0_#0011ff] group overflow-hidden">
+                        <img src="gambarasset/profil.webp" alt="Studio Vibe" class="w-full relative z-10 filter grayscale contrast-150 transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-100">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white border-4 border-black p-4 font-mono text-xl font-black transform rotate-6 z-20">
+                        EST. BANDUNG <br> // WEST JAVA
+                    </div>
+                    <!-- Big X behind image -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[300px] font-black text-black/10 z-0 pointer-events-none leading-none">
+                        X
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-6 flex flex-col justify-center reveal z-10 p-8 bg-white border-4 border-black shadow-[8px_8px_0_0_#ff1100]">
+                    <div class="flex items-center gap-4 mb-4 border-b-4 border-black pb-4">
+                        <div class="text-3xl font-black text-white bg-black px-3 py-1">01</div>
+                        <h2 class="text-xl font-mono font-black text-black uppercase tracking-widest">[ PROFIL_KAMI ]</h2>
+                    </div>
+                    
+                    <h3 class="text-5xl md:text-6xl font-black uppercase leading-[0.9] mb-6 tracking-tighter text-outline-thick !text-black">
+                        Bukan sekadar<br>warnet biasa.
+                    </h3>
+                    <p class="text-xl font-bold mb-6">
+                        <strong class="bg-tf-acid px-2 py-1 border-2 border-black inline-block transform -rotate-1">Third.floor Studio</strong> adalah arena underground di Bandung tempat para legenda lahir. Kami tidak membangun warnet; kami merancang markas bagi para gamer sejati.
+                    </p>
+                    <p class="text-gray-800 font-mono mb-8 text-base leading-relaxed font-bold bg-gray-100 p-4 border-l-8 border-tf-blue">
+                        Kami memadukan estetika industrial raw dengan teknologi gaming paling mutakhir. Dari turnamen hardcore hingga sesi multiplayer kasual yang intens, kami menyediakan ekosistem tanpa kompromi. Ping rendah, FPS rata kanan, dan atmosfir yang membuatmu lupa waktu.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 font-mono text-base font-black">
+                        <div class="border-4 border-black p-4 flex flex-col items-center justify-center text-center bg-tf-red text-white">
+                            <div class="text-5xl font-black mb-1">24/7</div>
+                            OPERASIONAL
+                        </div>
+                        <div class="border-4 border-black p-4 flex flex-col items-center justify-center text-center bg-tf-blue text-white">
+                            <div class="text-5xl font-black mb-1">99%</div>
+                            UPTIME NETWORK
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="arena" class="py-24 bg-tf-blue text-white relative z-20 border-b-8 border-white overflow-hidden">
+        <div class="absolute inset-0 pattern-checker opacity-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal bg-white text-black p-6 border-4 border-black shadow-[8px_8px_0_0_#000]">
+                <div>
+                    <h2 class="bg-tf-acid text-black inline-block px-2 font-mono text-lg font-black uppercase tracking-widest mb-4 border-2 border-black">[ AREA_OPERASI ]</h2>
+                    <h3 class="text-5xl md:text-7xl font-black uppercase tracking-tighter">Pilih Medan<br>Tempurmu</h3>
+                </div>
+                <div class="font-mono text-base font-bold max-w-sm mt-6 md:mt-0 text-left md:text-right border-t-4 md:border-t-0 md:border-l-4 border-black pt-4 md:pt-0 md:pl-4">
+                    Katalog zona gaming utama. Dirancang spesifik untuk tiap genre dan gaya bermain.
+                </div>
+            </div>
+
+            <!-- 5 Slots Grid Asymmetric Brutal -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Slot 1: PC Gaming (Large) -->
+                <div class="lg:col-span-2 group relative border-8 border-black overflow-hidden reveal bg-black shadow-[12px_12px_0_0_#ffffff]">
+                    <img src="gambarasset/area1.webp" alt="PC Gaming Arena" class="w-full h-96 object-cover filter grayscale contrast-125 transform group-hover:scale-110 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-700">
+                    <div class="absolute bottom-0 left-0 z-20 w-full p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
+                        <div class="bg-white text-black font-mono text-sm font-black px-3 py-1 mb-2 inline-block border-2 border-black">01 // BATTLESTATION</div>
+                        <h4 class="text-4xl font-black uppercase text-white">PC Gaming Pro Area</h4>
+                    </div>
+                </div>
+
+                <!-- Slot 2: PlayStation -->
+                <div class="group relative border-8 border-black overflow-hidden reveal bg-black shadow-[12px_12px_0_0_#ccff00]">
+                    <img src="gambarasset/area2.webp" alt="PlayStation Lounge" class="w-full h-96 md:h-full object-cover filter grayscale contrast-125 transform group-hover:scale-110 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-700">
+                    <div class="absolute bottom-0 left-0 z-20 w-full p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
+                        <div class="bg-tf-acid text-black font-mono text-sm font-black px-3 py-1 mb-2 inline-block border-2 border-black">02 // LOUNGE</div>
+                        <h4 class="text-3xl font-black uppercase text-white">PS5 VIP Room</h4>
+                    </div>
+                </div>
+
+                <!-- Slot 3: Racing Sim -->
+                <div class="group relative border-8 border-black overflow-hidden reveal bg-black shadow-[8px_8px_0_0_#ffffff]">
+                    <img src="gambarasset/area3.webp" alt="Racing Simulator" class="w-full h-72 object-cover filter grayscale contrast-125 transform group-hover:scale-110 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-700">
+                    <div class="absolute top-0 right-0 z-20 p-4">
+                        <div class="bg-white text-black font-mono text-sm font-black px-3 py-1 border-2 border-black">03 // SIMULATOR</div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 z-20 w-full p-6 bg-black/80 border-t-4 border-white">
+                        <h4 class="text-2xl font-black uppercase text-white">Apex Racing Rig</h4>
+                    </div>
+                </div>
+
+                <!-- Slot 4: Console Retro/Casual -->
+                <div class="group relative border-8 border-black overflow-hidden reveal bg-black shadow-[8px_8px_0_0_#ff1100]">
+                    <img src="gambarasset/area4.webp" alt="Console Gaming" class="w-full h-72 object-cover filter grayscale contrast-150 transform group-hover:scale-110 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-700">
+                    <div class="absolute top-0 right-0 z-20 p-4">
+                        <div class="bg-tf-red text-white font-mono text-sm font-black px-3 py-1 border-2 border-black">04 // CASUAL</div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 z-20 w-full p-6 bg-black/80 border-t-4 border-tf-red">
+                        <h4 class="text-2xl font-black uppercase text-white">Console Corner</h4>
+                    </div>
+                </div>
+
+                <!-- Slot 5: Multiplayer/Tournament -->
+                <div class="group relative border-8 border-black overflow-hidden reveal bg-black shadow-[8px_8px_0_0_#ffffff]">
+                    <img src="gambarasset/area5.webp" alt="Multiplayer Area" class="w-full h-72 object-cover filter grayscale contrast-125 transform group-hover:scale-110 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-700">
+                    <div class="absolute top-0 right-0 z-20 p-4">
+                        <div class="bg-black text-white font-mono text-sm font-black px-3 py-1 border-2 border-white">05 // SQUAD</div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 z-20 w-full p-6 bg-white border-t-4 border-black">
+                        <h4 class="text-2xl font-black uppercase text-black">5v5 Tournament Box</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" class="py-24 bg-tf-black relative overflow-hidden border-b-8 border-tf-red">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-5xl md:text-7xl font-black uppercase text-center mb-16 tracking-tighter reveal text-outline-thick text-white">
+                Hardware <span class="bg-tf-red text-white px-4 border-4 border-white inline-block transform rotate-2">Specs</span>
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Facility Items -->
+                <div class="bg-white p-6 border-4 border-black shadow-[8px_8px_0_0_#0011ff] reveal group text-black transform hover:-translate-y-2 transition-transform">
+                    <div class="border-4 border-black overflow-hidden mb-4">
+                        <img src="gambarasset/others1.webp" alt="Monitor 240Hz" class="w-full h-40 object-cover filter grayscale contrast-150 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500">
+                    </div>
+                    <h5 class="font-black text-2xl font-mono uppercase mb-2 bg-black text-white inline-block px-2">+ Display</h5>
+                    <p class="font-bold text-sm font-mono border-t-2 border-black pt-2 mt-2">Zowie 240Hz & 360Hz Monitors. 1ms response.</p>
+                </div>
+                
+                <div class="bg-white p-6 border-4 border-black shadow-[8px_8px_0_0_#ccff00] reveal group text-black delay-100 transform hover:-translate-y-2 transition-transform">
+                    <div class="border-4 border-black overflow-hidden mb-4">
+                        <img src="gambarasset/others2.webp" alt="Gaming Keyboard" class="w-full h-40 object-cover filter grayscale contrast-150 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500">
+                    </div>
+                    <h5 class="font-black text-2xl font-mono uppercase mb-2 bg-black text-tf-acid inline-block px-2">+ Peripherals</h5>
+                    <p class="font-bold text-sm font-mono border-t-2 border-black pt-2 mt-2">Mechanical KB, Ultra-light mice, 7.1 Surround headsets.</p>
+                </div>
+
+                <div class="bg-white p-6 border-4 border-black shadow-[8px_8px_0_0_#ff1100] reveal group text-black delay-200 transform hover:-translate-y-2 transition-transform">
+                    <div class="border-4 border-black overflow-hidden mb-4 relative">
+                        <div class="absolute inset-0 bg-tf-red mix-blend-overlay opacity-0 group-hover:opacity-10 transition-opacity z-10"></div>
+                        <img src="gambarasset/others3.webp" alt="Gaming Chair" class="w-full h-40 object-cover filter grayscale contrast-150 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500">
+                    </div>
+                    <h5 class="font-black text-2xl font-mono uppercase mb-2 bg-black text-tf-red inline-block px-2">+ Ergonomics</h5>
+                    <p class="font-bold text-sm font-mono border-t-2 border-black pt-2 mt-2">Premium Gaming Chairs. Posture support for long sessions.</p>
+                </div>
+
+                <div class="bg-white p-6 border-4 border-black shadow-[8px_8px_0_0_#0011ff] reveal group text-black delay-300 transform hover:-translate-y-2 transition-transform">
+                    <div class="border-4 border-black overflow-hidden mb-4 relative">
+                        <div class="absolute inset-0 bg-tf-blue mix-blend-overlay opacity-0 group-hover:opacity-10 transition-opacity z-10"></div>
+                        <img src="gambarasset/others4.webp" alt="PC Rig" class="w-full h-40 object-cover filter grayscale contrast-150 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500">
+                    </div>
+                    <h5 class="font-black text-2xl font-mono uppercase mb-2 bg-black text-white inline-block px-2">+ The Rigs</h5>
+                    <p class="font-bold text-sm font-mono border-t-2 border-black pt-2 mt-2">RTX 40-Series, Core i9/Ryzen 9, 32GB RAM minimum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-tf-paper text-black relative border-b-8 border-black">
+        <div class="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal border-4 border-black bg-white p-8 shadow-[12px_12px_0_0_#ff1100] max-w-3xl mx-auto transform -rotate-1">
+                <h2 class="text-6xl font-black uppercase tracking-tighter mb-4 text-outline-thick !text-black">The Culture</h2>
+                <p class="font-mono text-lg font-bold border-t-4 border-black pt-4">Vibes turnamen, nobar esports, mabar circle, sampai grinding solo rank jam 3 pagi.</p>
+            </div>
+            
+            <!-- Brutalist Collage Extreme -->
+            <div class="relative h-[700px] w-full reveal overflow-hidden md:overflow-visible">
+                
+                <div class="absolute top-10 left-0 md:left-10 w-72 h-72 z-10 transform -rotate-6 hover:rotate-0 transition-transform group">
+                    <div class="absolute -top-4 -left-4 w-16 h-8 bg-tf-acid border-2 border-black z-30 transform rotate-12"></div>
+                    <img src="gambarasset/suasana1.webp" alt="Tournament" class="w-full h-full object-cover border-8 border-black shadow-[12px_12px_0_0_#0011ff] filter grayscale contrast-150 transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-100 relative z-20">
+                </div>
+                
+                <div class="absolute top-32 right-0 md:right-10 w-80 h-64 z-20 transform rotate-3 hover:-rotate-0 transition-transform group">
+                    <div class="absolute -bottom-4 right-10 w-24 h-6 bg-tf-red border-2 border-black z-30 transform -rotate-6"></div>
+                    <img src="gambarasset/suasana2.webp" alt="Community" class="w-full h-full object-cover border-8 border-black shadow-[12px_12px_0_0_#ccff00] filter grayscale contrast-150 transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-100 relative z-20">
+                </div>
+                
+                <div class="absolute bottom-10 left-1/4 md:left-1/3 w-96 h-72 z-30 transform rotate-2 hover:rotate-0 transition-transform group">
+                    <div class="absolute top-1/2 -right-12 text-[100px] font-black text-black z-10 leading-none">X</div>
+                    <img src="gambarasset/suasana3.webp" alt="Late night grind" class="w-full h-full object-cover border-8 border-black shadow-[12px_12px_0_0_#ff1100] filter grayscale contrast-150 transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-100 relative z-20">
+                </div>
+                
+                <a href="https://wa.me/6289529605601" class="absolute bottom-20 right-10 md:right-32 bg-white text-black p-6 font-mono font-black text-3xl uppercase border-8 border-black z-40 transform -rotate-3 shadow-[12px_12px_0_0_#0011ff] hover:bg-tf-acid transition-colors cursor-pointer block">
+                    JOIN THE DISCORD <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[150px] md:text-[200px] font-black text-black/5 pointer-events-none mix-blend-multiply">
+                    COMMUNITY
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-32 bg-tf-blue text-white relative border-b-8 border-white overflow-hidden">
+        <!-- Texture overlay -->
+        <div class="absolute inset-0 pattern-cross opacity-30"></div>
+        <div class="absolute inset-0 pattern-stripes-blue opacity-50 mix-blend-overlay"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-20 text-center relative inline-block left-1/2 transform -translate-x-1/2 bg-black px-6 py-2 border-4 border-white shadow-[12px_12px_0_0_#ffffff]">
+                ACCESS GRANTED
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 font-mono">
+                <!-- Reguler -->
+                <div class="flex flex-col bg-black p-8 border-4 border-white transition-all transform md:-rotate-3 md:translate-y-4 hover:scale-105 hover:rotate-0 hover:z-20 reveal shadow-[8px_8px_0_0_#ffffff]">
+                    <div class="text-tf-acid font-black mb-4 bg-white/10 px-2 py-1 inline-block border border-white/30">01. DROP-IN</div>
+                    <h3 class="text-4xl font-black mb-4">REGULER</h3>
+                    <div class="text-5xl font-black mb-6">Rp 8K<span class="text-lg font-normal text-gray-400">/jam</span></div>
+                    <ul class="text-sm space-y-4 mb-10 text-gray-300 font-bold border-t-2 border-dashed border-white/50 pt-6">
+                        <li>> Akses PC Reguler (GTX 1660s)</li>
+                        <li>> 144Hz Monitor</li>
+                        <li>> Standar AC Room</li>
+                        <li>> F&B Order via Desk</li>
+                    </ul>
+                    <a href="https://wa.me/6289529605601?text=Halo%20Third.floor%20Studio,%20saya%20mau%20booking%20paket%20REGULER" target="_blank" class="mt-auto block text-center border-4 border-white py-3 hover:bg-white hover:text-black font-black text-xl uppercase transition-colors">PILIH</a>
+                </div>
+
+                <!-- VIP -->
+                <div class="flex flex-col bg-black p-8 border-4 border-tf-acid transition-all transform md:rotate-2 md:-translate-y-6 hover:scale-105 hover:rotate-0 hover:z-20 reveal delay-100 relative shadow-[12px_12px_0_0_#ccff00]">
+                    <div class="absolute -top-4 -right-4 bg-tf-acid text-black text-sm font-black px-4 py-2 transform rotate-6 border-4 border-black z-10 shadow-[4px_4px_0_0_#000]">MOST POPULAR</div>
+                    <div class="text-tf-acid font-black mb-4 bg-white/10 px-2 py-1 inline-block border border-tf-acid/30">02. HIGH-END</div>
+                    <h3 class="text-4xl font-black mb-4 text-tf-acid">VIP PRO</h3>
+                    <div class="text-5xl font-black mb-6 text-white">Rp 15K<span class="text-lg font-normal text-gray-400">/jam</span></div>
+                    <ul class="text-sm space-y-4 mb-10 text-gray-300 font-bold border-t-2 border-dashed border-tf-acid/50 pt-6">
+                        <li>> Akses PC VIP (RTX 4060)</li>
+                        <li>> 240Hz Zowie Monitor</li>
+                        <li>> Premium Gaming Chair</li>
+                        <li>> Priority Bandwidth</li>
+                    </ul>
+                    <a href="https://wa.me/6289529605601?text=Halo%20Third.floor%20Studio,%20saya%20mau%20booking%20paket%20VIP%20PRO" target="_blank" class="mt-auto block text-center bg-tf-acid text-black border-4 border-black py-3 font-black text-xl uppercase hover:bg-white transition-colors">PILIH</a>
+                </div>
+
+                <!-- Paket Begadang / Session -->
+                <div class="flex flex-col bg-black p-8 border-4 border-white transition-all transform md:-rotate-2 md:translate-y-8 hover:scale-105 hover:rotate-0 hover:z-20 reveal delay-200 shadow-[8px_8px_0_0_#ffffff]">
+                    <div class="text-tf-acid font-black mb-4 bg-white/10 px-2 py-1 inline-block border border-white/30">03. GRINDING</div>
+                    <h3 class="text-4xl font-black mb-4">NIGHT OWL</h3>
+                    <div class="text-5xl font-black mb-6">Rp 50K<span class="text-lg font-normal text-gray-400">/10 jam</span></div>
+                    <ul class="text-sm space-y-4 mb-10 text-gray-300 font-bold border-t-2 border-dashed border-white/50 pt-6">
+                        <li>> Akses Malam (22:00 - 08:00)</li>
+                        <li>> Free 1x Kopi/Es Teh</li>
+                        <li>> Pilih PC Reguler/VIP*</li>
+                        <li>> Extra Bantal Leher</li>
+                    </ul>
+                    <a href="https://wa.me/6289529605601?text=Halo%20Third.floor%20Studio,%20saya%20mau%20booking%20paket%20NIGHT%20OWL" target="_blank" class="mt-auto block text-center border-4 border-white py-3 hover:bg-white hover:text-black font-black text-xl uppercase transition-colors">PILIH</a>
+                </div>
+
+                <!-- Squad/Tournament -->
+                <div class="flex flex-col bg-black p-8 border-4 border-white transition-all transform md:rotate-3 md:-translate-y-2 hover:scale-105 hover:rotate-0 hover:z-20 reveal delay-300 shadow-[8px_8px_0_0_#ffffff]">
+                    <div class="text-tf-acid font-black mb-4 bg-white/10 px-2 py-1 inline-block border border-white/30">04. TEAM</div>
+                    <h3 class="text-4xl font-black mb-4">SQUAD BOX</h3>
+                    <div class="text-5xl font-black mb-6">Rp 250K<span class="text-lg font-normal text-gray-400">/5 jam</span></div>
+                    <ul class="text-sm space-y-4 mb-10 text-gray-300 font-bold border-t-2 border-dashed border-white/50 pt-6">
+                        <li>> Private Room (5 PC)</li>
+                        <li>> Setup Turnamen (Spesifikasi Dewa)</li>
+                        <li>> Papan Taktik & TV Cast</li>
+                        <li>> Bebas Asap Rokok</li>
+                    </ul>
+                    <a href="https://wa.me/6289529605601?text=Halo%20Third.floor%20Studio,%20saya%20mau%20booking%20paket%20SQUAD%20BOX" target="_blank" class="mt-auto block text-center border-4 border-white py-3 hover:bg-white hover:text-black font-black text-xl uppercase transition-colors">PILIH</a>
+                </div>
+            </div>
+            
+            <div class="mt-20 text-center">
+                <a href="https://wa.me/6289529605601" class="inline-block bg-black text-white px-10 py-4 border-4 border-white font-mono font-black text-xl uppercase hover:bg-white hover:text-black transition-colors shadow-[8px_8px_0_0_#000]">
+                    Tanya Paket Membership & Promosi <i class="fab fa-whatsapp ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-24 bg-tf-gray relative border-b-8 border-tf-acid">
+        <div class="absolute inset-0 pattern-stripes opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="mb-16 inline-block bg-white text-black border-4 border-black p-4 shadow-[8px_8px_0_0_#ff1100] transform -rotate-1 reveal">
+                <h2 class="text-5xl font-black uppercase tracking-tighter">[ INTEL / ULASAN ]</h2>
+                <div class="font-mono font-bold mt-2 border-t-4 border-black pt-2 uppercase">DATA_ARCHIVE_SECURE</div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-black p-8 border-4 border-white relative reveal shadow-[8px_8px_0_0_#ffffff]">
+                    <div class="absolute -top-4 -left-4 bg-tf-acid text-black font-mono text-sm font-black px-3 py-1 transform -rotate-3 border-2 border-black">VERIFIED</div>
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-white/20 pb-4">
+                        <div>
+                            <div class="font-black font-mono text-2xl text-white uppercase">Rizky</div>
+                            <div class="text-tf-blue text-base font-mono font-bold mt-1">> Valorant / Radiant Rank</div>
+                        </div>
+                        <div class="text-tf-acid text-2xl tracking-widest">★★★★★</div>
+                    </div>
+                    <p class="text-white font-mono font-bold text-lg leading-relaxed italic">"Setup PC-nya gila, rata kanan semua buat main Valorant 240Hz+ kerasa banget fluid-nya. Vibesnya juga beneran kaya masuk ke bunker rahasia. Gak ada bocah tereak-tereak aneh."</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-black p-8 border-4 border-white relative reveal delay-100 shadow-[8px_8px_0_0_#ffffff]">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-white/20 pb-4">
+                        <div>
+                            <div class="font-black font-mono text-2xl text-white uppercase">Dimas</div>
+                            <div class="text-tf-blue text-base font-mono font-bold mt-1">> Assetto Corsa / Sim Racer</div>
+                        </div>
+                        <div class="text-tf-acid text-2xl tracking-widest">★★★★★</div>
+                    </div>
+                    <p class="text-white font-mono font-bold text-lg leading-relaxed italic">"Area racing simulatornya terbaik di Bandung sejauh ini. Force feedback steering wheel-nya juara, rig kokoh. Sering kesini buat latihan sebelum gokart beneran di sirkuit."</p>
+                </div>
+
+                <!-- Review 3 (Reza changed to 5 stars) -->
+                <div class="bg-black p-8 border-4 border-white relative reveal shadow-[8px_8px_0_0_#ffffff]">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-white/20 pb-4">
+                        <div>
+                            <div class="font-black font-mono text-2xl text-white uppercase">Reza</div>
+                            <div class="text-tf-blue text-base font-mono font-bold mt-1">> Casual / FIFA & Tekken</div>
+                        </div>
+                        <div class="text-tf-acid text-2xl tracking-widest">★★★★★</div>
+                    </div>
+                    <p class="text-white font-mono font-bold text-lg leading-relaxed italic">"Tempat nongkrong wajib tiap weekend bareng anak-anak kampus. PS5-nya banyak, nggak pernah rebutan, sofa empuk parah. Adminnya juga asik diajak ngobrol. Mantap Third.floor!"</p>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="bg-black p-8 border-4 border-white relative reveal delay-100 shadow-[8px_8px_0_0_#ffffff]">
+                    <div class="absolute -top-4 -right-4 bg-tf-blue text-white font-mono text-sm font-black px-3 py-1 transform rotate-3 border-2 border-white">SQUAD VIP</div>
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-white/20 pb-4">
+                        <div>
+                            <div class="font-black font-mono text-2xl text-white uppercase">Squad X-Treme</div>
+                            <div class="text-tf-acid text-base font-mono font-bold mt-1">> MLBB / Dota 2</div>
+                        </div>
+                        <div class="text-tf-acid text-2xl tracking-widest">★★★★★</div>
+                    </div>
+                    <p class="text-white font-mono font-bold text-lg leading-relaxed italic">"Kemarin ngadain mini tournament/scrim MLBB disini sewa ruangan. Koneksi dewa, nggak ada spike sama sekali meski full team on. F&B juga enak dan terjangkau harganya."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-tf-paper text-black relative border-b-8 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- FAQ -->
+                <div class="reveal-left">
+                    <h2 class="text-5xl font-black uppercase mb-8">Data_Query <br><span class="text-tf-blue text-2xl bg-white border-2 border-black px-2 py-1 inline-block mt-2">[ FAQ ]</span></h2>
+                    
+                    <div class="space-y-6 font-mono">
+                        <!-- Accordion Items Brutal -->
+                        <div class="border-4 border-black bg-white p-6 shadow-[8px_8px_0_0_#000]">
+                            <button class="flex justify-between items-center w-full text-left font-black text-lg uppercase focus:outline-none" onclick="toggleFaq('faq1')">
+                                <span>Buka 24 Jam gak bang?</span>
+                                <i class="fas fa-plus text-tf-blue text-2xl" id="icon-faq1"></i>
+                            </button>
+                            <div id="faq1" class="hidden mt-6 text-base font-bold text-gray-800 border-t-4 border-black pt-4">
+                                Yoi. Sistem kita online 24/7. Lo bisa dateng jam 3 pagi buat mabar atau grinding rank kapan aja.
+                            </div>
+                        </div>
+
+                        <div class="border-4 border-black bg-white p-6 shadow-[8px_8px_0_0_#000]">
+                            <button class="flex justify-between items-center w-full text-left font-black text-lg uppercase focus:outline-none" onclick="toggleFaq('faq2')">
+                                <span>Bisa bawa makanan dari luar?</span>
+                                <i class="fas fa-plus text-tf-blue text-2xl" id="icon-faq2"></i>
+                            </button>
+                            <div id="faq2" class="hidden mt-6 text-base font-bold text-gray-800 border-t-4 border-black pt-4">
+                                Dilarang keras bawa F&B dari luar. Tapi tenang, kantin kita nyediain indomie, rice bowl, kopi, sampe minuman energi dengan harga merakyat.
+                            </div>
+                        </div>
+
+                        <div class="border-4 border-black bg-white p-6 shadow-[8px_8px_0_0_#000]">
+                            <button class="flex justify-between items-center w-full text-left font-black text-lg uppercase focus:outline-none" onclick="toggleFaq('faq3')">
+                                <span>Gimana cara sewa VIP Room buat turnamen?</span>
+                                <i class="fas fa-plus text-tf-blue text-2xl" id="icon-faq3"></i>
+                            </button>
+                            <div id="faq3" class="hidden mt-6 text-base font-bold text-gray-800 border-t-4 border-black pt-4">
+                                Langsung hubungi WhatsApp admin buat cek slot dan DP. Kalau buat event gede, bisa discuss harga spesial.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Map (Terminal Error UI Style) -->
+                <div class="reveal">
+                    <h2 class="text-5xl font-black uppercase mb-8">Koordinat <br><span class="text-tf-acid bg-black border-2 border-black px-2 py-1 inline-block mt-2 text-2xl">[ LOKASI ]</span></h2>
+                    
+                    <div class="border-8 border-black p-4 bg-white shadow-[12px_12px_0_0_#000] relative">
+                        <div class="absolute -top-4 -right-4 bg-black text-tf-acid font-mono text-sm font-black px-3 py-1 z-10 border-2 border-tf-acid">BANDUNG_HQ</div>
+                        
+                        <!-- Fixed iframe source for Bandung, styled as a dark terminal window -->
+                        <div class="w-full h-[350px] border-4 border-black relative overflow-hidden bg-black">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311654129782!3d-6.903444341687889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0; filter: grayscale(100%) contrast(150%) invert(100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        
+                        <div class="mt-6 font-mono text-base font-bold bg-gray-100 p-6 border-4 border-dashed border-black">
+                            <strong>Alamat Basecamp:</strong><br>
+                            Jl. Merdeka No. XX, Sumur Bandung<br>
+                            Kota Bandung, Jawa Barat 40111<br>
+                            (Patokan: Sebelah utara distro, naik tangga ke lantai 3)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-tf-black text-white border-t-8 border-white pt-20 pb-10 relative overflow-hidden">
+        <div class="absolute inset-0 pattern-cross opacity-20 z-0 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-4 mb-6 group cursor-pointer" onclick="window.scrollTo(0,0);">
+                        <img src="gambarasset/logo.webp" alt="Logo" class="h-16 w-16 object-cover border-4 border-white filter grayscale contrast-150 transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-100">
+                        <span class="font-black text-4xl tracking-tighter uppercase group-hover:text-tf-acid transition-colors">Third<span class="text-tf-red group-hover:text-white transition-colors">.floor</span></span>
+                    </div>
+                    <p class="font-mono text-base font-bold text-gray-300 mb-8 max-w-sm bg-black border-l-4 border-tf-blue p-4">
+                        Bandung's underground esports arena. Push rank tanpa lag, nongkrong dengan komunitas, tingkatkan level permainanmu disini.
+                    </p>
+                    <div class="flex space-x-6">
+                        <!-- Social Links Brutal Style -->
+                        <a href="https://www.instagram.com/solusilokal.id/" target="_blank" class="w-14 h-14 bg-white text-black border-4 border-black shadow-[4px_4px_0_0_#ff1100] flex items-center justify-center hover:bg-tf-red hover:text-white transition-colors transform hover:-translate-y-1">
+                            <i class="fab fa-instagram text-3xl"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@solusilokal.id" target="_blank" class="w-14 h-14 bg-white text-black border-4 border-black shadow-[4px_4px_0_0_#ff1100] flex items-center justify-center hover:bg-tf-red hover:text-white transition-colors transform hover:-translate-y-1">
+                            <i class="fab fa-tiktok text-3xl"></i>
+                        </a>
+                        <a href="https://wa.me/6289529605601" target="_blank" class="w-14 h-14 bg-white text-black border-4 border-black shadow-[4px_4px_0_0_#ff1100] flex items-center justify-center hover:bg-tf-red hover:text-white transition-colors transform hover:-translate-y-1">
+                            <i class="fab fa-whatsapp text-3xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fast Links -->
+                <div>
+                    <h4 class="font-mono font-black bg-white text-black inline-block px-2 uppercase mb-6 tracking-widest text-lg border-2 border-black">Directory</h4>
+                    <ul class="space-y-4 font-mono text-base font-bold text-white">
+                        <li><a href="#about" class="hover:text-tf-acid transition-colors flex items-center gap-2"><i class="fas fa-caret-right text-tf-red"></i> Profil Utama</a></li>
+                        <li><a href="#arena" class="hover:text-tf-acid transition-colors flex items-center gap-2"><i class="fas fa-caret-right text-tf-red"></i> Katalog Area</a></li>
+                        <li><a href="#pricing" class="hover:text-tf-acid transition-colors flex items-center gap-2"><i class="fas fa-caret-right text-tf-red"></i> Daftar Harga</a></li>
+                        <li><a href="#facilities" class="hover:text-tf-acid transition-colors flex items-center gap-2"><i class="fas fa-caret-right text-tf-red"></i> Specs & Fasilitas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-mono font-black bg-white text-black inline-block px-2 uppercase mb-6 tracking-widest text-lg border-2 border-black">Comms Link</h4>
+                    <ul class="space-y-4 font-mono text-base font-bold text-white">
+                        <li class="flex items-center gap-4 bg-black border-2 border-white p-3">
+                            <i class="fab fa-whatsapp text-2xl text-tf-acid"></i>
+                            <a href="https://wa.me/6289529605601" class="hover:text-tf-acid transition-colors">0895-2960-5601</a>
+                        </li>
+                        <li class="flex items-start gap-4 bg-black border-2 border-white p-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-2xl text-tf-blue"></i>
+                            <span>Bandung, West Java<br>Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright & Credit -->
+            <div class="border-t-4 border-white pt-8 flex flex-col md:flex-row justify-between items-center font-mono text-sm font-bold text-white bg-black p-4">
+                <p>&copy; 2026 Third.floor Studio. All rights reserved. // <span class="uppercase text-tf-acid">Play Hard</span></p>
+                <p class="mt-4 md:mt-0">
+                    Developed by <a href="https://www.solusilokal.id/" target="_blank" class="text-tf-red hover:text-white bg-white hover:bg-tf-red px-2 border-2 border-black transition-colors">SolusiLokal</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Toggle
+        function toggleFaq(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            }
+        }
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Scroll Reveal Animation (Intersection Observer)
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
+
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+            
+            setTimeout(() => {
+                reveals.forEach(reveal => {
+                    const rect = reveal.getBoundingClientRect();
+                    if(rect.top < window.innerHeight) {
+                        reveal.classList.add('active');
+                    }
+                });
+            }, 100);
+        });
+
+        // Cursor Glow Follow (Brighter, no trailing logic)
+        const cursorGlow = document.getElementById('cursor-glow');
+        
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                cursorGlow.style.left = e.clientX + 'px';
+                cursorGlow.style.top = e.clientY + 'px';
+            });
+        });
+        
+        document.addEventListener('mouseout', () => {
+            cursorGlow.style.opacity = '0';
+        });
+        
+        document.addEventListener('mouseover', () => {
+            cursorGlow.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
